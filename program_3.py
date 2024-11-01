@@ -10,7 +10,21 @@
 # are converted to a number.
 def sum_numbers_from_file():
     ######################
-    # Add your code here #
+    try:
+        # Open the file in read mode
+        with open('numbers.txt', 'r') as file:
+            totalSum = 0
+            for line in file:
+                try:
+                    number = int(line.strip())  
+                    totalSum += number          
+                except ValueError:
+                    print(f"ValueError: Unable to convert '{line.strip()}' to an integer.")
+        
+        # Display the total sum
+        print(f'The total sum of numbers in the file is: {totalSum}')
+    except IOError:
+        print("IOError: An error occurred while trying to read the file.")
     ######################
     print('In the sum_numbers_from_file function')
 
