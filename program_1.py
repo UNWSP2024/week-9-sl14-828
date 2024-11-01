@@ -5,7 +5,19 @@
 
 def count_file_lines():
     ######################
-    # Add your code here #
+    try:
+        # Open the file in read mode
+        with open('names.txt', 'r') as file:
+            # Read all lines and count them
+            namesList = file.readlines()
+            numberOfNames = len(namesList)
+        
+        # Display the count of names
+        print(f'The number of names in the file is: {numberOfNames}')
+    except FileNotFoundError:
+        print("The file 'names.txt' does not exist.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
     ######################
     print('In the count_file_lines function')
 
